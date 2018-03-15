@@ -1,0 +1,58 @@
+.section-header {
+    background-color: #337ab7;
+}
+.pad-20 {
+    padding: 20px;
+}
+.user {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.mlr-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.todo-title, .noresult {
+    font-size: 16px;
+    font-weight: 700;
+}
+label {
+    font-size: 12px;
+    font-weight: 700;
+}
+.invalid-feedback {
+    display: block;
+}
+input {
+    font-size: 14px;
+}
+.flex-aligns {    
+    margin-top: 27px;
+}
+.fa-trash-o {
+    color: red;
+    cursor: pointer;
+}
+.card-header {    
+    background-color: #59ace2;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.card-body p {    
+    font-size: 14px;    
+}
+.card-body p, .blockquote-footer, .noresult {
+    color: #000;
+    font-weight: normal;
+}
+.blockquote-footer {
+    font-size: 12px;
+    font-weight: bold;
+}
+.card {
+    margin-bottom: 25px;
+}

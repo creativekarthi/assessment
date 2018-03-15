@@ -1,0 +1,73 @@
+<div class="fluid-container">  
+  <div class="row section-header pad-20 mlr-0">
+    <div class="col">
+      <span class="user">Welcome, {{ userName }}</span>
+    </div>
+    <div class="col">
+      <div class="float-right"><button type="button" class="btn btn-success btn-sm" (click)="_logout()">Logout</button></div>
+    </div>
+  </div>
+  <div class="row mlr-0 pad-20">
+    <div class="col">
+      <span class="todo-title"> Create Todo</span>
+    </div>
+  </div>
+  <form name="form" (ngSubmit)="todo.form.valid && onSubmitTodo(todo)" #todo="ngForm" id="todo" novalidate>    
+  <div class="row section-todo pad-20 mlr-0">
+    <div class="col">   
+        <div class="">
+            <label for="username">Title</label>
+            <input type="text" placeholder="Title" name="title" [(ngModel)]="todoModel.title" #task="ngModel" class="form-control form-control-sm rounded-0" name="task" id="task" required>
+            <div class="invalid-feedback" *ngIf="todo.submitted && !task.valid">Create your task</div>
+        </div>                           
+    </div>
+    <div class="col">
+      <div class="">
+          <label>Description</label>
+          <input type="text" placeholder="Description" name="description" [(ngModel)]="todoModel.description" #desc="ngModel" class="form-control form-control-sm rounded-0" id="desc" required>
+          <div class="invalid-feedback" *ngIf="todo.submitted && !desc.valid" >Enter your decription of the task</div>
+      </div> 
+    </div>
+    <div class="col flex-aligns">
+      <div>
+       <button type="submit" class="btn btn-success btn-sm" id="btnAdd">Add</button>
+      </div>
+    </div>
+  </div> 
+  </form>
+<div *ngIf="todosList; else spinner">
+  <div class="row pad-20 mlr-0" *ngIf="todosList.length > 0; else noresult">
+    <div class="col-md-4 col-sm-6" *ngFor="let list of todosList; let i = index">
+      <div class="card">
+        <div class="card-header">
+          {{ list.title }}
+          <i class="fa fa-trash-o float-right" (click)="deleteTask(list.id)"></i>
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>{{ list.description }}</p>
+            <footer class="blockquote-footer"><cite title="Source Title">{{ list.date | date:'yyyy-MM-dd HH:mm' }}</cite></footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>    
+  </div>  
+  </div>  
+</div>
+
+<!-- Spinner -->
+	<ng-template #noresult>
+    <div class="row pad-20 mlr-0">
+		  <div class="col">
+        <span class="noresult">No todo list is available</span>
+		  </div>
+    </div>
+	</ng-template>
+<!-- Spinner -->
+	<ng-template #spinner>
+		<div class="spinner">
+			<div class="inner-spinner">
+				<img src="assets/images/loader.gif">
+			</div>
+		</div>
+	</ng-template>
